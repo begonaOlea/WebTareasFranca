@@ -1,0 +1,34 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.jsp">Home</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="lista.jsp">Lista</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="prestamo.jsp">Prestados</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="formulario-alta-libro.jsp">Alta</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="lista-usuarios.jsp">Usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="formulario-alta-usuario.jsp">Registro Usuarios</a>
+        </li>
+
+    </ul>
+</nav>
+<br>
+
+<div class="container">
+    <h3></h3>
+    <p></p>
+</div>

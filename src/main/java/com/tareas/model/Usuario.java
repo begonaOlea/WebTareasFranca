@@ -4,16 +4,26 @@ import java.util.Objects;
 
 public class Usuario {
 
+    private String id;
     private String nombre;
     private String apellidos;
     private String email;
     private String contrasenia;
 
-    public Usuario(String nombre, String apellidos, String email, String contrasenia) {
+    public Usuario(String id, String nombre, String apellidos, String email, String contrasenia) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.contrasenia = contrasenia;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -75,7 +85,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrasenia=" + contrasenia + '}';
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrasenia=" + contrasenia + '}';
     }
 
 }
