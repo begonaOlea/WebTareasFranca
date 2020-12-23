@@ -1,6 +1,7 @@
 package com.tareas.services;
 
 import com.tareas.exceptiones.DBException;
+import com.tareas.model.Estado;
 import com.tareas.model.Tarea;
 import com.tareas.model.Usuario;
 import java.util.Collection;
@@ -11,13 +12,17 @@ public class DB {
 
     private static Map<String, Tarea> tareas;
     private static Map<String, Usuario> usuarios;
-    private static int ultimoIdTareas = 0;
 
     static {
         usuarios = new HashMap<String, Usuario>();
-        usuarios.put("fpch", new Usuario("fpch", "Franca", "Chiantera", "franca@gmail.com", "1234"));
-        usuarios.put("jfud", new Usuario("jfud", "Jose", "Useche", "jose@gmail.com", "1234"));
-        
+        usuarios.put("franca@gmail.com", new Usuario("franca@gmail.com", "Franca Chiantera", "1234"));
+        usuarios.put("jose@gmail.com", new Usuario("jose@gmail.com", "Jose Useche", "1234"));
+
+        tareas = new HashMap<String, Tarea>();
+        tareas.put("Tarea1", new Tarea("Tarea1", Estado.DONE));
+        tareas.put("Tarea2", new Tarea("Tarea2", Estado.INPROGRESS));
+        tareas.put("Tarea3", new Tarea("Tarea3", Estado.DONE));
+        tareas.put("Tarea4", new Tarea("Tarea4", Estado.TODO));
     }
 
     private DB() {
@@ -25,6 +30,13 @@ public class DB {
 
     public static synchronized Collection<Tarea> getAllTareas() {
         return tareas.values();
+    }
+
+    public static synchronized void altaTarea(Tarea t) throws DBException {
+        if (tareas.containsKey(t.getDescripcion())) {
+            throw new DBException("Ya existe la tarea: " + t.getDescripcion());
+        }
+        tareas.put(t.getDescripcion(), t);
     }
 
     public static synchronized Collection<Usuario> getAllUsuarios() {

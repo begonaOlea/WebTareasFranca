@@ -17,45 +17,29 @@ public class AltaUsuarioServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //1. LEER PARAMETROS alias, nombre, apellidos, email, pwd
-        String paramAlias = request.getParameter("alias");
-        String paramNombre = request.getParameter("nombre");
-        String paramApell = request.getParameter("apellidos");
+        //1. LEER PARAMETROS email, nombrecompleto, contraseña
         String paramEmail = request.getParameter("email");
+        String paramNombreApellidos = request.getParameter("nombreApellidos");
         String paramPwd = request.getParameter("pwd");
 
         //2.  VALIDAR PARAMETROS
-        String msgErrorAlias = null;
+        String msgErrorNombreApellidos = null;
         String msgErrorEmail = null;
         String msgErrorPwd = null;
-        String msgErrorNombre = null;
-        String msgErrorApellidos = null;
         String msgErrorAlta = null;
 
         boolean valido = true;
-        //VALIDAR ALIAS
-        if (paramAlias == null || paramAlias.trim().length() == 0) {
-            msgErrorAlias = "Debe indicar un alias";
-            valido = false;
-        }
-
-        //VALIDAR NOMBRE
-        if (paramNombre == null || paramNombre.trim().length() == 0) {
-            msgErrorNombre = "Debe indicar nombre ";
-            valido = false;
-        }
-        //VALIDAR APELLIDOS
-        if (paramApell == null || paramApell.trim().length() == 0) {
-            msgErrorApellidos = "Debe indicar los apellidos ";
-            valido = false;
-        }
 
         //VALIDAR EMAIL
         if (paramEmail == null || paramEmail.trim().length() == 0) {
             msgErrorEmail = "Debe indicar el email del usuario";
             valido = false;
         }
-
+        //VALIDAR NOMBRE y APELLIDOS
+        if (paramNombreApellidos == null || paramNombreApellidos.trim().length() == 0) {
+            msgErrorNombreApellidos = "Debe indicar nombre ";
+            valido = false;
+        }
         //VALIDAR PWD        
         if (paramPwd == null || paramPwd.trim().length() == 0) {
             msgErrorPwd = "Debe indicar una clave";
@@ -64,7 +48,7 @@ public class AltaUsuarioServlet extends HttpServlet {
 
         //3.  SI NO HAY ALGUN ERROR intentar grabar
         if (valido) {
-            Usuario usuario = new Usuario(paramPwd, paramNombre, msgErrorApellidos, paramEmail, paramEmail);
+            Usuario usuario = new Usuario(paramEmail, paramNombreApellidos, paramEmail);
             try {
                 DB.altaUsuario(usuario);
                 // add usuario ATRIBUTO DE SESION
@@ -86,11 +70,9 @@ public class AltaUsuarioServlet extends HttpServlet {
             jspAMostrar = "lista-usuarios.jsp";
         } else {
             jspAMostrar = "formulario-alta-usuario.jsp";
-            request.setAttribute("msgErrorAlias", msgErrorAlias);
             request.setAttribute("msgErrorEmail", msgErrorEmail);
+            request.setAttribute("msgErrorNombre", msgErrorNombreApellidos);
             request.setAttribute("msgErrorPwd", msgErrorPwd);
-            request.setAttribute("msgErrorNombre", msgErrorNombre);
-            request.setAttribute("msgErrorApellidos", msgErrorApellidos);
             request.setAttribute("msgErrorAlta", msgErrorAlta);
         }
 

@@ -33,7 +33,7 @@
                     <c:forEach var="usr" items="${requestScope.listaUsuarios}" >
                         <tr>
                             <th scope="row">${usr.email}</th>
-                            <td>${usr.nombre} ${usr.apellidos}</td>
+                            <td>${usr.nombreApellidos}</td>
                         </tr>
                     </c:forEach>
                 </tbody>

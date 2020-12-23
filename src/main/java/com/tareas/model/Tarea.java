@@ -4,22 +4,13 @@ import java.util.Objects;
 
 public class Tarea {
 
-    private int id;
     private String descripcion;
-    private String estado;
+    private Estado estado;
 
-    public Tarea(int id, String descripcion, String estado) {
-        this.id = id;
+    public Tarea(String descripcion, Estado estado) {
+
         this.descripcion = descripcion;
         this.estado = estado;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescripcion() {
@@ -30,11 +21,11 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -65,6 +56,7 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return "Tarea{" + "id=" + id + ", descripcion=" + descripcion + ", estado=" + estado + '}';
+        return "Tarea{" + "descripcion=" + descripcion + ", estado=" + estado + '}';
     }
+
 }

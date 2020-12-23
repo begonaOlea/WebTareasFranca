@@ -4,42 +4,14 @@ import java.util.Objects;
 
 public class Usuario {
 
-    private String alias;
-    private String nombre;
-    private String apellidos;
     private String email;
+    private String nombreApellidos;
     private String contrasenia;
 
-    public Usuario(String id, String nombre, String apellidos, String email, String contrasenia) {
-        this.alias = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
+    public Usuario(String email, String nombreApellidos, String contrasenia) {
         this.email = email;
+        this.nombreApellidos = nombreApellidos;
         this.contrasenia = contrasenia;
-    }
-
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
     }
 
     public String getEmail() {
@@ -48,6 +20,14 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNombreApellidos() {
+        return nombreApellidos;
+    }
+
+    public void setNombreApellidos(String nombreApellidos) {
+        this.nombreApellidos = nombreApellidos;
     }
 
     public String getContrasenia() {
@@ -60,8 +40,8 @@ public class Usuario {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.email);
+        int hash = 7;
+        hash = 73 * hash + Objects.hashCode(this.email);
         return hash;
     }
 
@@ -85,7 +65,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + alias + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrasenia=" + contrasenia + '}';
+        return "Usuario{" + "email=" + email + ", nombreApellidos=" + nombreApellidos + ", contrasenia=" + contrasenia + '}';
     }
 
 }

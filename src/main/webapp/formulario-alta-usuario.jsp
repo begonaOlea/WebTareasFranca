@@ -24,26 +24,15 @@
             <!--Formulario-->
 
             <form action="alta-usuario" method="post">
-
-                <label for="alias">Alias</label>
-                <input type="text" class="form-control" id="email" name="alias">
-                <div>
-                    <div class="col"> ${requestScope.msgErrorAlias}</div>
-                </div>
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="email" name="nombre">
-                <div>
-                    <div class="col"> ${requestScope.msgErrorNombre}</div>
-                </div>
-                <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="pwd"  name="apellidos">
-                <div>
-                    <div class="col"> ${requestScope.msgErrorApellidos}</div>
-                </div>
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email"  name="email">
                 <div>
                     <div class="col"> ${requestScope.msgErrorEmail}</div>
+                </div>
+                <label for="nombre">Nombre y Apellidos</label>
+                <input type="text" class="form-control" id="email" name="nombre">
+                <div>
+                    <div class="col"> ${requestScope.msgErrorNombreApellidos}</div>
                 </div>
                 <label for="pwd">Contraseña</label>
                 <input type="password" class="form-control" id="email"  name="pwd">
