@@ -61,15 +61,15 @@ public class LoginServlet extends HttpServlet {
         //   SINO ir a lista.jsp
         String jspAMostrar = "";
         if (valido) {
-            jspAMostrar = "lista-tareas.jsp";
+            resp.sendRedirect("lista-tareas");
+            //jspAMostrar = "lista-tareas.jsp";
         } else {
             jspAMostrar = "login.jsp";
             req.setAttribute("msgErrorEmail", msgErrorEmail);
             req.setAttribute("msgErrorClave", msgErrorClave);
+            RequestDispatcher rd = req.getRequestDispatcher(jspAMostrar);
+            rd.forward(req, resp);
         }
-
-        RequestDispatcher rd = req.getRequestDispatcher(jspAMostrar);
-        rd.forward(req, resp);
 
     }//fin del post
 }

@@ -6,7 +6,9 @@ import com.tareas.model.Tarea;
 import com.tareas.model.Usuario;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class DB {
 
@@ -48,6 +50,14 @@ public class DB {
             throw new DBException("Ya existe un usuario para el email " + u.getEmail());
         }
         usuarios.put(u.getEmail(), u);
+    }
+
+    public static synchronized Collection<Tarea> getAllTareasPorUsuario() {
+        Set<Tarea> listaTareasPorUsuario = new HashSet<Tarea>();
+        for (Tarea tarea : listaTareasPorUsuario) {
+            listaTareasPorUsuario.add(tarea);
+        }
+        return listaTareasPorUsuario;
     }
 
 }//fin clase

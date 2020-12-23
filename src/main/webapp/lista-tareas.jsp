@@ -18,8 +18,8 @@
         <% Collection<Tarea> lista = DB.getAllTareas();
             request.setAttribute("listaTareas", lista);
         %>
-        
-                <div>
+
+        <div>
             <table class="table" >
                 <thead>
                     <tr>
@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
 
-                    <c:forEach var="tarea" items="${requestScope.listaTareas}" >
+                    <c:forEach var="tarea" items="${ requestScope.listaTareas}" >
                         <tr>
                             <th scope="row">${tarea.descripcion}</th>
                             <td>${tarea.estado}</td>
@@ -38,6 +38,5 @@
                 </tbody>
             </table>
         </div>
-
     </body>
 </html>
