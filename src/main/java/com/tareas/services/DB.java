@@ -9,15 +9,15 @@ import java.util.Map;
 
 public class DB {
 
-    private static Map<Integer, Tarea> tareas;
+    private static Map<String, Tarea> tareas;
     private static Map<String, Usuario> usuarios;
     private static int ultimoIdTareas = 0;
 
     static {
         usuarios = new HashMap<String, Usuario>();
-        usuarios.put("fpch", new Usuario("fpch","Franca", "Chiantera", "franca@gmail.com", "1234"));
-        usuarios.put("jfud", new Usuario("jfud","Jose", "Useche", "jose@gmail.com", "1234"));
-
+        usuarios.put("fpch", new Usuario("fpch", "Franca", "Chiantera", "franca@gmail.com", "1234"));
+        usuarios.put("jfud", new Usuario("jfud", "Jose", "Useche", "jose@gmail.com", "1234"));
+        
     }
 
     private DB() {

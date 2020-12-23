@@ -1,9 +1,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-    <img src="imgs\Libros.jpg" class="rounded-circle" class="img-fluid" alt="Imagen Libros" width="250" height="200"> 
-    <h1 font-family: 'Shadows Into Light', cursive;> TAREAS </h1>
+<div class="container p-3 my-3 border">
+  <h1> TASK </h1>
+ <img src="imgs\Tareas.jpg" class="mx-auto d-block" alt="Tareas"> 
 </div>
+
 <div class="col-12">
     <c:choose>
         <c:when test="${ not empty sessionScope.usuario }">

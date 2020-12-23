@@ -8,27 +8,14 @@
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="lista.jsp">Lista</a>
+            <a class="nav-link" href="login.jsp">Iniciar sesión</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="prestamo.jsp">Prestados</a>
+            <a class="nav-link" href="formulario-alta-usuario.jsp">Registrarse</a>
         </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="formulario-alta-libro.jsp">Alta</a>
+                <li class="nav-item">
+            <a class="nav-link" href="lista-usuarios.jsp">Lista Usuarios</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="lista-usuarios.jsp">Usuarios</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="formulario-alta-usuario.jsp">Registro Usuarios</a>
-        </li>
-
     </ul>
 </nav>
 <br>
-
-<div class="container">
-    <h3></h3>
-    <p></p>
-</div>
