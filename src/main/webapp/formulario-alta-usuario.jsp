@@ -30,7 +30,7 @@
                     <div class="col"> ${requestScope.msgErrorEmail}</div>
                 </div>
                 <label for="nombre">Nombre y Apellidos</label>
-                <input type="text" class="form-control" id="email" name="nombre">
+                <input type="text" class="form-control" id="email" name="nombreApellidos">
                 <div>
                     <div class="col"> ${requestScope.msgErrorNombreApellidos}</div>
                 </div>

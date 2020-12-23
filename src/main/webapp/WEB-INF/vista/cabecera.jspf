@@ -8,8 +8,7 @@
 <div class="col-12">
     <c:choose>
         <c:when test="${ not empty sessionScope.usuario }">
-            <h5> Usuario: ${ sessionScope.usuario.nombre }
-                ${ sessionScope.usuario.apellidos }
+            <h5> Usuario: ${ sessionScope.usuario.nombreApellidos }
                 <a href="logout">logout</a>
             </c:when>
             <c:otherwise>

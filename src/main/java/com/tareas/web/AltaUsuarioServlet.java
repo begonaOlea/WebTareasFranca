@@ -48,7 +48,7 @@ public class AltaUsuarioServlet extends HttpServlet {
 
         //3.  SI NO HAY ALGUN ERROR intentar grabar
         if (valido) {
-            Usuario usuario = new Usuario(paramEmail, paramNombreApellidos, paramEmail);
+            Usuario usuario = new Usuario(paramEmail, paramNombreApellidos, paramPwd);
             try {
                 DB.altaUsuario(usuario);
                 // add usuario ATRIBUTO DE SESION
