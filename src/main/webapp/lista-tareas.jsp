@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="com.tareas.model.Usuario"%>
 <%@page import="com.tareas.services.DB"%>
 <%@page import="com.tareas.model.Tarea"%>
 <%@page import="java.util.Collection"%>
@@ -15,8 +17,14 @@
         </><%@include file="WEB-INF/vista/menu.jspf" %>
         <h1>Lista Tareas</h1>
 
-        <% Collection<Tarea> lista = DB.getAllTareas();
+        <%
+
+            HttpSession sesion = request.getSession();
+            Usuario usr = (Usuario) sesion.getAttribute("usuario");
+            Collection<Tarea> lista = DB.getAllTareasPorUsuario(usr);
             request.setAttribute("listaTareas", lista);
+            
+
         %>
 
         <div>

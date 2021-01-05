@@ -62,7 +62,6 @@ public class LoginServlet extends HttpServlet {
         String jspAMostrar = "";
         if (valido) {
             resp.sendRedirect("lista-tareas");
-            //jspAMostrar = "lista-tareas.jsp";
         } else {
             jspAMostrar = "login.jsp";
             req.setAttribute("msgErrorEmail", msgErrorEmail);

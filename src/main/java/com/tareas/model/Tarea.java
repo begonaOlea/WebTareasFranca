@@ -4,13 +4,27 @@ import java.util.Objects;
 
 public class Tarea {
 
+    private int idTarea;
     private String descripcion;
     private Estado estado;
 
-    public Tarea(String descripcion, Estado estado) {
-
+    public Tarea(String descripcion, Estado estado, int idTarea) {
+        this.idTarea = idTarea;
         this.descripcion = descripcion;
         this.estado = estado;
+    }
+
+    public Tarea(String descripcion, Estado estado) {
+        this.descripcion = descripcion;
+        this.estado = estado;
+    }
+
+    public int getIdTarea() {
+        return idTarea;
+    }
+
+    public void setIdTarea(int idTarea) {
+        this.idTarea = idTarea;
     }
 
     public String getDescripcion() {
@@ -56,7 +70,7 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return "Tarea{" + "descripcion=" + descripcion + ", estado=" + estado + '}';
+        return "Tarea{" + "idTarea=" + idTarea + ", descripcion=" + descripcion + ", estado=" + estado + '}';
     }
 
 }

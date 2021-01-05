@@ -31,8 +31,10 @@ public class ListaTareasServlet extends HttpServlet {
         if (sesion.getAttribute("usuario") == null) {
             resp.sendRedirect("login.jsp");
         } else {
-            Collection<Tarea> listaTareas = DB.getAllTareas();
+            Collection<Tarea> listaTareas = DB.getAllTareasPorUsuario(usr);
             req.setAttribute("listaTareas", listaTareas);
+   
+            
         }
         RequestDispatcher rd = req.getRequestDispatcher("lista-tareas.jsp");
         rd.forward(req, resp);

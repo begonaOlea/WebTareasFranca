@@ -12,30 +12,35 @@ import java.util.Set;
 
 public class DB {
 
-    private static Map<String, Tarea> tareas;
     private static Map<String, Usuario> usuarios;
+    private static Map<String, Tarea> tareas;
 
     static {
         usuarios = new HashMap<String, Usuario>();
-        usuarios.put("franca@gmail.com", new Usuario("franca@gmail.com", "Franca Chiantera", "1234"));
-        usuarios.put("jose@gmail.com", new Usuario("jose@gmail.com", "Jose Useche", "1234"));
-
         tareas = new HashMap<String, Tarea>();
-        tareas.put("Tarea1", new Tarea("Tarea1", Estado.DONE));
-        tareas.put("Tarea2", new Tarea("Tarea2", Estado.INPROGRESS));
-        tareas.put("Tarea3", new Tarea("Tarea3", Estado.DONE));
-        tareas.put("Tarea4", new Tarea("Tarea4", Estado.TODO));
+
+        usuarios.put("usuario1@gmail.com", new Usuario("usuario1@gmail.com", "Usuario 1", "1234", 1));
+        usuarios.put("usuario2@gmail.com", new Usuario("usuario2@gmail.com", "Usuario 2", "1234", 2));
+
+        //Tareas usuario 1
+        tareas.put("Tarea1", new Tarea("Tarea1", Estado.DONE, 1));
+        tareas.put("Tarea2", new Tarea("Tarea2", Estado.INPROGRESS, 1));
+        tareas.put("Tarea3", new Tarea("Tarea3", Estado.DONE, 1));
+        tareas.put("Tarea4", new Tarea("Tarea4", Estado.TODO, 1));
+
+        //Tareas usuario 2
+        tareas.put("Tarea5", new Tarea("Tarea5", Estado.DONE, 2));
+        tareas.put("Tarea6", new Tarea("Tarea6", Estado.INPROGRESS, 2));
+        tareas.put("Tarea7", new Tarea("Tarea7", Estado.DONE, 2));
+        tareas.put("Tarea8", new Tarea("Tarea8", Estado.TODO, 2));
+
     }
 
     private DB() {
     }
 
-    public static synchronized Collection<Tarea> getAllTareas() {
-        return tareas.values();
-    }
-
     public static synchronized void altaTarea(Tarea t) throws DBException {
-        if (tareas.containsKey(t.getDescripcion())) {
+        if (tareas.containsValue(t.getDescripcion())) {
             throw new DBException("Ya existe la tarea: " + t.getDescripcion());
         }
         tareas.put(t.getDescripcion(), t);
@@ -45,6 +50,10 @@ public class DB {
         return usuarios.values();
     }
 
+    public static synchronized Collection<Tarea> getAllTareas() {
+        return tareas.values();
+    }
+
     public static synchronized void altaUsuario(Usuario u) throws DBException {
         if (usuarios.containsKey(u.getEmail())) {
             throw new DBException("Ya existe un usuario para el email " + u.getEmail());
@@ -52,10 +61,15 @@ public class DB {
         usuarios.put(u.getEmail(), u);
     }
 
-    public static synchronized Collection<Tarea> getAllTareasPorUsuario() {
+    public static synchronized Collection<Tarea> getAllTareasPorUsuario(Usuario u) {
         Set<Tarea> listaTareasPorUsuario = new HashSet<Tarea>();
-        for (Tarea tarea : listaTareasPorUsuario) {
-            listaTareasPorUsuario.add(tarea);
+        int idUsuario = u.getIdUsuario();
+        
+        for (Tarea tarea : tareas.values()) {
+
+            if (idUsuario == tarea.getIdTarea()) {
+                listaTareasPorUsuario.add(tarea);
+            }
         }
         return listaTareasPorUsuario;
     }
