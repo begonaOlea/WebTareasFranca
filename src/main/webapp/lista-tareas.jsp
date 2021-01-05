@@ -14,8 +14,7 @@
     </head>
     <body>
         </><%@include file="WEB-INF/vista/cabecera.jspf" %>
-        </><%@include file="WEB-INF/vista/menu.jspf" %>
-        <h1>Lista Tareas</h1>
+        <h1>Lista Tareas ${ sessionScope.usuario.nombreApellidos }</h1>
 
         <%
 
