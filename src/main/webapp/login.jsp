@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Introduce los datos de Acceso</h1>
+                    <h1>Iniciar sesión</h1>
                 </div>
             </div>
             <form action="login" method="post">

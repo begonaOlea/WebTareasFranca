@@ -8,6 +8,11 @@
         </><%@include file="WEB-INF/vista/menu.jspf" %>
     </head>
     <body>
-        <h1>BIENVENIDO!</h1>
+        <div class="row">
+            <div class="mx-auto d-block">
+                <h1 class="text-center">BIENVENIDO!</h1>
+                <img src="imgs\Tareas.jpg" class="float-left" alt="tareas" >
+            </div>
+        </div>
     </body>
 </html>
