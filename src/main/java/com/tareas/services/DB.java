@@ -102,4 +102,29 @@ public class DB {
         return listaTareasDone;
     }
 
-}//fin clase
+    public static synchronized void cambiarEstadoTareaAvanzar(String descripcion, Estado estado) {
+
+        if (estado == Estado.TODO) {
+            tareas.get(descripcion).setEstado(Estado.INPROGRESS);
+        } else {
+            tareas.get(descripcion).setEstado(Estado.DONE);
+        }
+    }
+
+    public static synchronized void cambiarEstadoTareaRetroceder(String descripcion, Estado estado) {
+
+        if (estado == Estado.DONE) {
+            tareas.get(descripcion).setEstado(Estado.INPROGRESS);
+        } else {
+            tareas.get(descripcion).setEstado(Estado.TODO);
+        }
+    }
+
+    public static synchronized void eliminarTareaDone(String descripcion, Estado estado) {
+
+        if (estado == Estado.DONE) {
+            tareas.remove(descripcion);
+        }
+
+    }//fin clase
+}

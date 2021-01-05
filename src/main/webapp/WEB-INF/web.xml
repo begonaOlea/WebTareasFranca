@@ -20,6 +20,18 @@
         <servlet-name>AltaTareaServlet</servlet-name>
         <servlet-class>com.tareas.web.AltaTareaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CambiarEstadoTareaServlet</servlet-name>
+        <servlet-class>com.tareas.web.CambiarEstadoTareaRetroServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CambiarEstadoTareaAvanzarServlet</servlet-name>
+        <servlet-class>com.tareas.web.CambiarEstadoTareaAvanzarServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarTareaServlet</servlet-name>
+        <servlet-class>com.tareas.web.EliminarTareaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>AltaTareaServlet</servlet-name>
         <url-pattern>/alta-tarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiarEstadoTareaServlet</servlet-name>
+        <url-pattern>/cambiar-estado-tarea-retro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiarEstadoTareaAvanzarServlet</servlet-name>
+        <url-pattern>/cambiar-estado-tarea-avanza</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarTareaServlet</servlet-name>
+        <url-pattern>/eliminar-tarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
