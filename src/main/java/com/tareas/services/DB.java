@@ -47,7 +47,7 @@ public class DB {
     }
 
     public static synchronized void altaTarea(Tarea t) throws DBException {
-        if (tareas.containsValue(t.getDescripcion())) {
+        if (tareas.containsKey(t.getDescripcion())) {
             throw new DBException("Ya existe la tarea: " + t.getDescripcion());
         }
         tareas.put(t.getDescripcion(), t);

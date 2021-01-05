@@ -16,6 +16,10 @@
         <servlet-name>ListaTareasServlet</servlet-name>
         <servlet-class>com.tareas.web.ListaTareasServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AltaTareaServlet</servlet-name>
+        <servlet-class>com.tareas.web.AltaTareaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ListaTareasServlet</servlet-name>
         <url-pattern>/lista-tareas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaTareaServlet</servlet-name>
+        <url-pattern>/alta-tarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

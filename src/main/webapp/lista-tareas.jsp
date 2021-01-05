@@ -92,6 +92,10 @@
             </div>
         </div>
         </div>
+        <hr>
+                <li class="nav-item">
+            <a class="nav-link" href="formulario-alta-tarea.jsp">Agregar Tarea</a>
+        </li>
 
     </body>
 </html>
