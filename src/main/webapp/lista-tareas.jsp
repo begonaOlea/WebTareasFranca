@@ -14,36 +14,84 @@
     </head>
     <body>
         </><%@include file="WEB-INF/vista/cabecera.jspf" %>
-        <h1>Lista Tareas ${ sessionScope.usuario.nombreApellidos }</h1>
+        <h2 class="text-center">Lista Tareas ${ sessionScope.usuario.nombreApellidos }</h2>           
+
 
         <%
 
             HttpSession sesion = request.getSession();
             Usuario usr = (Usuario) sesion.getAttribute("usuario");
-            Collection<Tarea> lista = DB.getAllTareasPorUsuario(usr);
-            request.setAttribute("listaTareas", lista);
             
+            Collection<Tarea> listaToDo = DB.getTareasToDo(usr);
+            request.setAttribute("listaTareasToDo", listaToDo);
+            
+            Collection<Tarea> listaInProgress = DB.getTareasInProgress(usr);
+            request.setAttribute("listaTareasInProgress", listaInProgress);
+            
+            Collection<Tarea> listaDone = DB.getTareasDone(usr);
+            request.setAttribute("listaTareasDone", listaDone);
+
 
         %>
-
-        <div>
-            <table class="table" >
-                <thead>
-                    <tr>
-                        <th>Descripción</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <c:forEach var="tarea" items="${ requestScope.listaTareas}" >
-                        <tr>
-                            <th scope="row">${tarea.descripcion}</th>
-                            <td>${tarea.estado}</td>
+        <div class="row">
+        <div class="table-responsive col-md-4">
+            <div class="container">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr class="text-center">
+                            <th>TO DO</th>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="tarea" items="${ requestScope.listaTareasToDo}" >
+                            <tr>
+                                <th scope="row">${tarea.descripcion}</th>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+        <div class="table-responsive col-md-4">
+            <div class="container">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr class="text-center">
+                            <th>IN PROGRESS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="tarea" items="${ requestScope.listaTareasInProgress}" >
+                            <tr>
+                                <th scope="row">${tarea.descripcion}</th>
+                            </tr>
+                        </c:forEach>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-responsive col-md-4">
+            <div class="container">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr class="text-center">
+                            <th>DONE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="tarea" items="${ requestScope.listaTareasDone}" >
+                            <tr>
+                                <th scope="row">${tarea.descripcion}</th>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
     </body>
 </html>

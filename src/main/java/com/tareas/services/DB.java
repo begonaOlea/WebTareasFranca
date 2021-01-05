@@ -39,6 +39,13 @@ public class DB {
     private DB() {
     }
 
+    public static synchronized void altaUsuario(Usuario u) throws DBException {
+        if (usuarios.containsKey(u.getEmail())) {
+            throw new DBException("Ya existe un usuario para el email " + u.getEmail());
+        }
+        usuarios.put(u.getEmail(), u);
+    }
+
     public static synchronized void altaTarea(Tarea t) throws DBException {
         if (tareas.containsValue(t.getDescripcion())) {
             throw new DBException("Ya existe la tarea: " + t.getDescripcion());
@@ -50,28 +57,49 @@ public class DB {
         return usuarios.values();
     }
 
-    public static synchronized Collection<Tarea> getAllTareas() {
-        return tareas.values();
-    }
-
-    public static synchronized void altaUsuario(Usuario u) throws DBException {
-        if (usuarios.containsKey(u.getEmail())) {
-            throw new DBException("Ya existe un usuario para el email " + u.getEmail());
-        }
-        usuarios.put(u.getEmail(), u);
-    }
-
-    public static synchronized Collection<Tarea> getAllTareasPorUsuario(Usuario u) {
-        Set<Tarea> listaTareasPorUsuario = new HashSet<Tarea>();
+    public static synchronized Collection<Tarea> getTareasToDo(Usuario u) {
+        Set<Tarea> listaTareasToDo = new HashSet<Tarea>();
         int idUsuario = u.getIdUsuario();
-        
+
         for (Tarea tarea : tareas.values()) {
 
             if (idUsuario == tarea.getIdTarea()) {
-                listaTareasPorUsuario.add(tarea);
+                if (tarea.getEstado() == Estado.TODO) {
+                    listaTareasToDo.add(tarea);
+                }
             }
         }
-        return listaTareasPorUsuario;
+        return listaTareasToDo;
+    }
+
+    public static synchronized Collection<Tarea> getTareasInProgress(Usuario u) {
+        Set<Tarea> listaTareasInProgress = new HashSet<Tarea>();
+        int idUsuario = u.getIdUsuario();
+
+        for (Tarea tarea : tareas.values()) {
+
+            if (idUsuario == tarea.getIdTarea()) {
+                if (tarea.getEstado() == Estado.INPROGRESS) {
+                    listaTareasInProgress.add(tarea);
+                }
+            }
+        }
+        return listaTareasInProgress;
+    }
+
+    public static synchronized Collection<Tarea> getTareasDone(Usuario u) {
+        Set<Tarea> listaTareasDone = new HashSet<Tarea>();
+        int idUsuario = u.getIdUsuario();
+
+        for (Tarea tarea : tareas.values()) {
+
+            if (idUsuario == tarea.getIdTarea()) {
+                if (tarea.getEstado() == Estado.DONE) {
+                    listaTareasDone.add(tarea);
+                }
+            }
+        }
+        return listaTareasDone;
     }
 
 }//fin clase

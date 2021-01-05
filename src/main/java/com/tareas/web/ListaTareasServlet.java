@@ -31,10 +31,15 @@ public class ListaTareasServlet extends HttpServlet {
         if (sesion.getAttribute("usuario") == null) {
             resp.sendRedirect("login.jsp");
         } else {
-            Collection<Tarea> listaTareas = DB.getAllTareasPorUsuario(usr);
-            req.setAttribute("listaTareas", listaTareas);
-   
-            
+            Collection<Tarea> listaTareasToDo = DB.getTareasToDo(usr);
+            req.setAttribute("listaTareasToDo", listaTareasToDo);
+
+            Collection<Tarea> listaTareasInProgress = DB.getTareasInProgress(usr);
+            req.setAttribute("listaTareasInProgress", listaTareasInProgress);
+
+            Collection<Tarea> listaTareasDone = DB.getTareasDone(usr);
+            req.setAttribute("listaTareasDone", listaTareasDone);
+
         }
         RequestDispatcher rd = req.getRequestDispatcher("lista-tareas.jsp");
         rd.forward(req, resp);
