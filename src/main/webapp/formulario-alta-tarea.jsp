@@ -7,7 +7,7 @@
         </><%@include file="WEB-INF/vista/bootStrap.jspf"%> 
         </><%@include file="WEB-INF/vista/cabecera.jspf" %>
     </head>
-    <body>        
+    <body background="imgs\TareasFondo.jpg" style="background-repeat: no-repeat; background-position: center center; background-size: cover">        
         <div class="container">
             <div class="row">
                 <div class="col">

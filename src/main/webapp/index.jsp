@@ -7,7 +7,7 @@
         </><%@include file="WEB-INF/vista/cabecera.jspf" %>
         </><%@include file="WEB-INF/vista/menu.jspf" %>
     </head>
-    <body>
+    <body background="imgs\TareasFondo.jpg" style="background-repeat: no-repeat; background-position: center center; background-size: cover">
         <div class="row">
             <div class="mx-auto d-block">
                 <h1 class="text-center">BIENVENIDO!</h1>
